@@ -218,7 +218,7 @@ description: |
 ## References
 
 详见 `references/` 目录：
-- `nutrition-guide.md`：家庭营养指南
+- `nutrition-guide.md`：家庭营养指南（基于人民卫生出版社《中国居民膳食指南（2022）》）
 - `seasonal-ingredients.md`：中国各地季节食材
 
 ## Templates

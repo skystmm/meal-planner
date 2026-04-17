@@ -104,10 +104,95 @@ meal-planner/
 
 ## 安装
 
-Skill 已安装在 `~/.openclaw/skills/meal-planner/`
+### 方式一：OpenClaw（推荐）
 
-无需额外安装，OpenClaw 会自动加载。
+通过 ClawHub 安装：
+
+```bash
+# 安装 ClawHub CLI
+npm install -g clawhub
+
+# 安装 meal-planner skill
+clawhub install meal-planner
+```
+
+或手动安装：
+
+```bash
+# 克隆到 OpenClaw skills 目录
+cd ~/.openclaw/skills
+git clone https://github.com/skystmm/meal-planner.git
+```
+
+安装后 OpenClaw 会自动加载，无需额外配置。
 
 ---
 
-*Version: 1.0 | Created: 2026-04-16*
+### 方式二：Hermes Agent
+
+Hermes Agent 支持导入 OpenClaw skills：
+
+```bash
+# 在 Hermes 工作目录
+cd ~/hermes-agent/skills
+
+# 克隆 skill
+git clone https://github.com/skystmm/meal-planner.git
+
+# Hermes 会自动识别 SKILL.md
+```
+
+配置 Hermes Agent 的 skill 目录：
+
+```yaml
+# hermes-config.yaml
+skills:
+  directory: ~/hermes-agent/skills
+  auto_load: true
+```
+
+---
+
+### 方式三：Claude Code
+
+Claude Code 支持通过 `.claude/skills/` 目录加载：
+
+```bash
+# 创建 Claude Code skills 目录
+mkdir -p ~/.claude/skills
+
+# 克隆 skill
+cd ~/.claude/skills
+git clone https://github.com/skystmm/meal-planner.git
+```
+
+Claude Code 会自动读取 `SKILL.md` 并应用指令。
+
+---
+
+### 验证安装
+
+安装后可通过以下方式验证：
+
+```bash
+# OpenClaw
+ls ~/.openclaw/skills/meal-planner/SKILL.md
+
+# Hermes
+ls ~/hermes-agent/skills/meal-planner/SKILL.md
+
+# Claude Code
+ls ~/.claude/skills/meal-planner/SKILL.md
+```
+
+## 技术细节
+
+### 数据来源
+
+- **营养标准**：《中国居民膳食指南（2022）》人民卫生出版社
+- **季节食材**：LLM 知识库实时推荐（无需固定文件）
+
+### 依赖
+
+- Python 3.x（可选，用于季节判断脚本）
+- 无外部 API 依赖

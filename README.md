@@ -49,7 +49,9 @@ meal-planner/
 │   └── get_season.py     # 季节判断脚本
 ├── references/
 │   ├── nutrition-guide.md      # 家庭营养指南
-│   └── seasonal-ingredients.md # 中国各地季节食材
+│   └── nutrition-guide.md # 家庭营养指南
+│
+│ **季节食材**：使用 LLM 知识库实时推荐，无需固定文件
 └── assets/
     └── meal-plan-template.md   # 食谱输出模板
 ```
